@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import EmployeeForm from './components/EmployeeForm';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    employees: []
+  }
+
+  componentDidMount() {
+    // fetch('http://localhost:8080/employees')
+    // .then(res => res.json())
+    // .then((data) => {
+    //   this.setState({ employees: data.data })
+    // })
+    // .catch(console.log)
+  }
+
+  render() {
+    return (
+      <div>
+        <EmployeeForm/>
+        {/* <Employee employees={this.state.employees} /> */}
+      </div>
+    );
+  }
 }
 
 export default App;
