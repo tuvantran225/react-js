@@ -4,10 +4,7 @@ class Checkbox extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            label: props.label || "Checkbox",
-            divClass: props.divClass || "custom-control custom-checkbox",
-            inputClass: props.inputClass || "custom-control-input",
-            labelClass: props.inputClass || "custom-control-label",
+            className: props.className || "custom-control-input",
             id: props.id,
             name: props.name,
             checked: props.checked
@@ -15,22 +12,16 @@ class Checkbox extends Component {
     }
 
     render() {
-        const {label, divClass, inputClass, labelClass, id, name} = this.state;
+        const {className, id, name, checked} = this.state;
 
         return (
-            <div className={divClass}>
-                <input 
-                    type="checkbox"
-                    className={inputClass}
-                    id={id}
-                    name={name}
-                />
-                <label 
-                    htmlFor={id}
-                    className={labelClass}>
-                    {label}
-                </label>
-            </div>
+            <input 
+                type="checkbox"
+                className={className}
+                id={id}
+                name={name}
+                checked={checked}
+            />
         );
     }
 }

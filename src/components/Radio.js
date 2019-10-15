@@ -4,10 +4,7 @@ class Radio extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            label: props.label || "Radio",
-            divClass: props.divClass || "custom-control custom-radio",
-            inputClass: props.inputClass || "custom-control-input",
-            labelClass: props.inputClass || "custom-control-label",
+            className: props.className || "custom-control-input",
             id: props.id,
             name: props.name,
             checked: props.checked
@@ -15,23 +12,16 @@ class Radio extends Component {
     }
 
     render() {
-        const {label, divClass, inputClass, labelClass, id, name, checked} = this.state;
+        const {className, id, name, checked} = this.state;
 
         return (
-            <div className={divClass}>
-                <input 
-                    type="radio"
-                    className={inputClass}
-                    id={id}
-                    name={name}
-                    checked={checked}
-                />
-                <label 
-                    htmlFor={id}
-                    className={labelClass}>
-                    {label}
-                </label>
-            </div>
+            <input 
+                type="radio"
+                className={className}
+                id={id}
+                name={name}
+                checked={checked}
+            />
         );
     }
 }

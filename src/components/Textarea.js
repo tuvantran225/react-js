@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 
-class Input extends Component {
+class Textarea extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            type: props.type || "text",
             className: props.className || "form-control",
+            rows: props.rows,
             id: props.id,
             name: props.name,
             value: props.value,
@@ -13,25 +13,25 @@ class Input extends Component {
         };
     }
 
-    handleChangeValue = (event) => {
+    handleChangeValue(event) {
         this.props.onChange(event);
     }
 
     render() {
-        const {type, className, id, name, value, placeholder} = this.state;
+        const {className, rows, id, name, value, placeholder} = this.state;
         
         return (
-            <input 
-                type={type}
+            <textarea 
                 className={className}
+                rows={rows}
                 id={id}
                 name={name}
                 value={value}
                 placeholder={placeholder}
-                onChange={this.handleChangeValue}
+                onChange={this.handleChangeValue.bind(this)}
             />
         );
     }
 }
 
-export default Input;
+export default Textarea;
