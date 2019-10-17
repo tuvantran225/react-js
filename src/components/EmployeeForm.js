@@ -11,20 +11,19 @@ class EmployeeForm extends Component {
         super(props);
         this.state = {
             firstName: "",
-            lastName: "",
-            employees: []
+            lastName: ""
         }
     }
 
     handleSubmitForm = (event) => {
+        let {firstName, lastName} = this.state;
         const params = {
-            firstName: this.state.firstName,
-            lastName: this.state.lastName
+            firstName: firstName,
+            lastName: lastName
         }
         axios.get("http://localhost:8080/employees", {params})
             .then(res => {
-                const employees = res.data.data;
-                this.setState({employees: employees});
+                this.props.getEmployees(res.data.data);
             });
         event.preventDefault();
     }
