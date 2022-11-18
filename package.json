@@ -9,7 +9,7 @@
     "mobx-react": "^6.1.4",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
-    "react-scripts": "3.2.0",
+    "react-scripts": "5.0.1",
     "react-table": "^6.10.3"
   },
   "scripts": {
